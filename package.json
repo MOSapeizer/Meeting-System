@@ -15,6 +15,7 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
+    "bulma": "^0.3.1",
     "vue-fullcalendar": "^1.0.9"
   }
 }
