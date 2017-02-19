@@ -3,5 +3,5 @@
 @section('title', "會議室租借")
 
 @section('content')
-	<example></example>
+	<full-calendar :events="fcEvents" lang="en"></full-calendar>
 @stop

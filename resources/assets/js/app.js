@@ -13,10 +13,14 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Example from './components/Example.vue'
+import fullCalendar from 'vue-fullcalendar'
 
-Vue.component('example', Example);
+Vue.component('full-calendar', fullCalendar)
 
+// Vue2
 const app = new Vue({
-    el: '#app'
-});
+  el : '#app',
+  components : {
+    fullCalendar
+  }
+})
