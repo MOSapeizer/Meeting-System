@@ -1,6 +1,7 @@
 
 import Vue from 'vue'
-import fullCalendar from 'vue-fullcalendar'
+// import fullCalendar from 'vue-fullcalendar'
+import calendar from './components/Calendar.vue'
 import appNavbar from './components/Navbar.vue'
 import appFooter from './components/Footer.vue'
 
@@ -8,7 +9,7 @@ import appFooter from './components/Footer.vue'
 const app = new Vue({
   el : '#app',
   components : {
-    fullCalendar,
+    calendar,
     appNavbar,
     appFooter,
   }
