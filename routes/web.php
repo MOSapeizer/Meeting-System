@@ -11,6 +11,8 @@
 |
 */
 
+use App\Libraries\Calendar;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -19,4 +21,9 @@ Route::get('/meeting', function () {
     return view('meeting', [
     	"name" => "Jason"
     ]);
+});
+
+Route::get('/calendar/{month}', function ($month) {
+	$calendar = new Calendar();
+	return $calendar->getMonth($month);
 });
