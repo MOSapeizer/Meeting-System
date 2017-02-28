@@ -31,11 +31,29 @@ class Calendar
 		for ($i=0; $i < $days_in_month ; $i++) { 
 			$data = [ "day" => ($first_day + $i) % 7,
 					  "date" => $month."/".($i+1), 
-					  "meetings" => [] ];
+					  "meetings" => $this->_getMeetings() ];
+
 			array_push($month_info, $data);
 		}
 
 		return $month_info;
+	}
+
+	private function _getMeetings()
+	{
+		$meetings = [];
+		$num = rand(0, 9);
+
+		for ($i=0; $i < $num ; $i++) { 
+			array_push($meetings, [
+				"name" => "",
+				"lab" => "",
+				"start_at" => "",
+				"end_at" => ""
+			]);
+		}
+
+		return $meetings;
 	}
 
 	/**

@@ -31,9 +31,10 @@ export default {
 }
 
 .weekdays li {
-    display: inline-block;
-    width: 13.6%;
     color: #666;
+    display: inline-block;
+    font-size:16px;
     text-align: center;
+    width: calc(100%/7 - 8px);
 }
 </style>
