@@ -1,7 +1,11 @@
 <template>
 
 <div>
-  <calendar-month></calendar-month>
+  <calendar-month @prev="prevMonth"
+                  @next="nextMonth"
+                  :year="currentYear"
+                  :month="currentMonth">                  
+  </calendar-month>
   <calendar-day-title></calendar-day-title>
   <calendar-day></calendar-day>
 
@@ -20,7 +24,8 @@ export default {
 
   data () {
     return {
-
+      currentYear: 2017,
+      currentMonth: 2,
     };
   },
 
@@ -28,7 +33,35 @@ export default {
       calendarMonth,
       calendarDay,
       calendarDayTitle,
-  }
+  },
+
+  methods: {
+    nextMonth() {
+      let isNextYear = (this.currentMonth + 1) / 13 == 1;
+      let nextMonth = (this.currentMonth + 1) % 13; // 0~12
+
+      if( isNextYear || nextMonth <= 0 )
+        nextMonth = 1;
+
+      if( isNextYear )
+        this.currentYear++;
+
+      this.currentMonth = nextMonth;
+    },
+
+    prevMonth() {
+      let isPrevYear = (this.currentMonth - 1) == 0;
+      let prevMonth = (this.currentMonth - 1) % 13; // 0~12
+
+      if( isPrevYear || prevMonth <= 0 )
+        prevMonth = 12;
+
+      if( isPrevYear )
+        this.currentYear--;
+
+      this.currentMonth = prevMonth;
+    }
+  },
 };
 </script>
 

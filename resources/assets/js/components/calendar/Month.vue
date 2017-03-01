@@ -1,11 +1,11 @@
 <template>
 <div class="month">      
 	<ul>
-		<li class="prev">❮</li>
-		<li class="next">❯</li>
+		<li @click="decrementMonth" class="prev">❮</li>
+		<li @click="incrementMonth" class="next">❯</li>
 		<li style="text-align:center">
-		August<br>
-		<span style="font-size:18px">2016</span>
+		{{ monthText }}<br>
+		<span style="font-size:18px">{{ year }}</span>
 		</li>
 	</ul>
 </div>
@@ -16,11 +16,30 @@ export default {
 
   name: 'CalendarMonth',
 
+  props: ["year", "month"],
+
   data () {
     return {
+        monthLiteral: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
 
     };
-  }
+  },
+
+  methods: {
+    decrementMonth() {
+        this.$emit('prev');
+    },
+
+    incrementMonth() {
+        this.$emit('next');
+    },
+  },
+
+  computed: {
+    monthText() {
+        return this.monthLiteral[this.month-1];
+    },
+  },
 };
 </script>
 
@@ -52,5 +71,9 @@ export default {
 .month .next {
     float: right;
     padding-top: 10px;
+}
+
+.month .prev, .month .next  {
+    cursor: pointer;
 }
 </style>
