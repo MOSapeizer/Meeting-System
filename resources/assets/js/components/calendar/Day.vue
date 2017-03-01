@@ -23,7 +23,7 @@ export default {
     		meetings: []
     	}],
 
-    	colorScale: 2,
+    	colorScale: 4,
     };
   },
 
@@ -71,7 +71,7 @@ export default {
 .days li {
     list-style-type: none;
     display: inline-block;
-    width: calc(100%/7 - 4px);
+    width: calc(100%/7);
     text-align: center;
     margin-bottom: 5px;
     font-size:16px;

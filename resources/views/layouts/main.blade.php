@@ -8,17 +8,12 @@
 <body>
 	<div id="app">
 		<app-navbar></app-navbar>
-
-		@yield('content')
+		<div class="container">
+			@yield('content')
+		</div>
 
 		<app-footer></app-footer>
 	</div>
-
-	<script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
-    </script>
 	<script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

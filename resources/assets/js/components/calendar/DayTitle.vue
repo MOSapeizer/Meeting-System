@@ -35,6 +35,6 @@ export default {
     display: inline-block;
     font-size:16px;
     text-align: center;
-    width: calc(100%/7 - 8px);
+    width: calc(100%/7 - 4px);
 }
 </style>
