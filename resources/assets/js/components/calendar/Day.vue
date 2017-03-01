@@ -1,9 +1,9 @@
 <template>
 
 <ul class="days">
-	<li v-for="date of prevMonth"></li>
+	<li v-for="date of prevMonth">&nbsp;</li>
 	<li v-for="date of currentMonth" :class="color(date.meetings)">{{ date.date.split("/")[1] }}</li>
-	<li v-for="date of nextMonth"></li>
+	<li v-for="date of nextMonth">&nbsp;</li>
 </ul>
 
 </template>
@@ -63,25 +63,25 @@ export default {
 
 <style lang="css" scoped>
 .days {
-    padding: 10px 0;
-    background: #eee;
-    margin: 0;
+  background: #eee;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .days li {
-    list-style-type: none;
-    display: inline-block;
-    width: calc(100%/7);
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:16px;
-    padding: 20px;
-    color: #777;
+  list-style-type: none;
+  display: inline-block;
+  width: calc(100%/7);
+  text-align: center;
+  font-size:16px;
+  padding: 20px;
+  color: #777;
 }
 
-.days li .active {
-    /*padding: 5px;*/
-    background: #1abc9c;
-    color: white !important
+.days li:before {
+  content: "";
+  display: block;
+  padding-top: calc(100% - 24px);
 }
 </style>
