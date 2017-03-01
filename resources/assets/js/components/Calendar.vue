@@ -7,7 +7,7 @@
                   :month="currentMonth">                  
   </calendar-month>
   <calendar-day-title></calendar-day-title>
-  <calendar-day></calendar-day>
+  <calendar-day :year="currentYear" :month="currentMonth"></calendar-day>
 
 </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       currentYear: 2017,
-      currentMonth: 2,
+      currentMonth: 4,
     };
   },
 

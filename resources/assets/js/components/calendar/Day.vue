@@ -13,6 +13,8 @@ export default {
 
   name: 'CalendarDay',
 
+  props: ["year", "month"],
+
   data () {
     return {
     	currentMonth: [{
@@ -25,8 +27,16 @@ export default {
     };
   },
 
+  watch: {
+  	month(newMonth) {
+  		this.$http.get("/calendar/" + this.month).then((response) => {
+	  		this.currentMonth = response.data;
+	  	});
+  	}
+  },
+
   mounted () {
-  	this.$http.get("/calendar/2").then((response) => {
+  	this.$http.get("/calendar/" + this.month).then((response) => {
   		this.currentMonth = response.data;
   	})
   },
